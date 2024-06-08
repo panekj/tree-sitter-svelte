@@ -3,6 +3,7 @@
   "version": "0.11.0",
   "description": "Tree-sitter-grammar for svelte",
   "main": "bindings/node",
+  "types": "bindings/node",
   "engines": {
     "node": "~18.4.0"
   },
@@ -14,7 +15,9 @@
     "dev": "nodemon",
     "publish-package": "np --no-tests --no-2fa --no-yarn",
     "wasm": "tree-sitter build-wasm",
-    "ui": "tree-sitter build-wasm && tree-sitter web-ui"
+    "ui": "tree-sitter build-wasm && tree-sitter web-ui",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip"
   },
   "repository": {
     "type": "git",
@@ -26,6 +29,14 @@
     "svelte",
     "grammar"
   ],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
   "author": "Himujjal <himu@tuta.io>",
   "license": "MIT",
   "bugs": {
@@ -33,11 +44,21 @@
   },
   "homepage": "https://github.com/Himujjal/tree-sitter-svelte#readme",
   "dependencies": {
-    "nan": "^2.17.0"
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
-    "tree-sitter-cli": "^0.20.7"
+    "tree-sitter-cli": "^0.20.7",
+    "prebuildify": "^6.0.0"
   },
   "tree-sitter": [
     {

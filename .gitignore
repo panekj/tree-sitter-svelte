@@ -1,33 +1,38 @@
-# node
-node_modules
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-
-# extra
-build
-log.txt
-
-# zig stuff
-zig-cache
-.gyro
-gyro.lock
-
-
-
-# Added by cargo
-
-/target
-
-
-# Added by cargo
-#
-# already existing elements were commented out
-
-#/target
+# Rust artifacts
 Cargo.lock
+target/
 
-# all .o, .a, and .so files
-*.o
+# Node artifacts
+build/
+prebuilds/
+node_modules/
+*.tgz
+
+# Swift artifacts
+.build/
+
+# Go artifacts
+go.sum
+_obj/
+
+# Python artifacts
+.venv/
+dist/
+*.egg-info
+*.whl
+
+# C artifacts
 *.a
 *.so
+*.so.*
+*.dylib
+*.dll
+*.pc
+
+# Example dirs
+/examples/*/
+
+# Grammar volatiles
+*.wasm
+*.obj
+*.o
